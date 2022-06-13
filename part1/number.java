@@ -13,11 +13,11 @@ public class number {
         System.out.println("Введите максимальное, целое число:");
         int maxNum = Integer.parseInt(myNumber.nextLine());
         int rnd = 0 + (int) (Math.random() * maxNum);
-//        System.out.println(rnd); //debug
+        System.out.println(rnd); //debug
         System.out.println("Введите максимальное колличество попыток: ");
         int maxCount = Integer.parseInt(myNumber.nextLine());
         int count = 0;
-        int userNum = 0 + (int) (Math.random() * (maxNum + 100));
+        int userNum = rnd + 100;
         while (userNum != rnd){
             if (count >= maxCount) {
                 System.out.println("Колличество попыток вышло!");
