@@ -20,7 +20,7 @@ public class QuickSort {
             quickSort(array,left, index -1);
         }
         if(index < right){
-            quickSort(array,left,right);
+            quickSort(array,index,right);
         }
     }
     }
@@ -43,8 +43,8 @@ public class QuickSort {
         return left;
     }
     private static void swap(int[] array, int firstIndex, int secondIndex){
-        int temparray = array[firstIndex];
+        int temp = array[firstIndex];
         array[firstIndex] = array[secondIndex];
-        array[secondIndex] = temparray;
+        array[secondIndex] = temp;
     }
 }
