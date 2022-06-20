@@ -5,7 +5,7 @@ package part1;
 
 import java.util.Scanner;
 
-public class stroka {
+public class Stroka {
     public static void main(String[] args) {
         Scanner myScannerIn = new Scanner(System.in);
         System.out.println("Введите строку которую надо проверить: ");
@@ -28,5 +28,5 @@ public class stroka {
 
 
 
-    }
-}
+    } //main
+}//class
