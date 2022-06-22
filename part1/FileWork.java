@@ -30,16 +30,15 @@ public class FileWork {
             System.out.println(ex.getMessage());
         }
     }
-    static public char[] ReadFromFile(String path) throws Exception {
-        char[] temp = new char[0];
+    static public byte[] ReadFromFile(String path) throws Exception {
+        byte[] temp = new byte[0];
         try(FileInputStream fis = new FileInputStream(path);
             BufferedInputStream bfi = new BufferedInputStream(fis)){
-            int i;
+            byte i;
             int v = 0;
-            char[] mydata = new char[bfi.available()];
-            
-            while ((i = bfi.read()) != -1){
-                mydata[v] = (char) i;
+            byte[] mydata = new byte[bfi.available()];
+            while ((i = (byte) bfi.read()) != -1){
+                mydata[v] = i;
                 v++;
             }
             temp = mydata;
@@ -47,9 +46,6 @@ public class FileWork {
             System.out.println(ex.getMessage());
         }
         return temp;
-
-
-
      /*   try(FileInputStream fis = new FileInputStream(path);
             ByteArrayOutputStream bfi = new ByteArrayOutputStream()) {
             int val=0;
@@ -68,12 +64,12 @@ public class FileWork {
       */
     }
     static public void Start (String path, String topatch) throws Exception{
-   char[] data = ReadFromFile(path);
+   byte[] data = ReadFromFile(path);
 
-        for (char c: data
+        for (byte c: data
              ) {
-            String out = new String(Character.toString(c));
-            System.out.println(out);
+            //String out = new String(Character.toString(c));
+            System.out.println((char) c);
         }
 
 
