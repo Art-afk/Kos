@@ -5,6 +5,8 @@ package part1;
                 "Порядок должен сохраниться тем же, что был во входном файле (3 строка)";
  */
 import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
 public class FileWork {
@@ -28,28 +30,50 @@ public class FileWork {
             System.out.println(ex.getMessage());
         }
     }
-    static public byte[] ReadFromFile(String path) throws Exception {
-        byte[] data = new byte[0];
+    static public char[] ReadFromFile(String path) throws Exception {
+        char[] temp = new char[0];
         try(FileInputStream fis = new FileInputStream(path);
-            ByteArrayOutputStream bfi = new ByteArrayOutputStream()){
-            int val;
+            BufferedInputStream bfi = new BufferedInputStream(fis)){
+            int i;
+            int v = 0;
+            char[] mydata = new char[bfi.available()];
+            
+            while ((i = bfi.read()) != -1){
+                mydata[v] = (char) i;
+                v++;
+            }
+            temp = mydata;
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return temp;
+
+
+
+     /*   try(FileInputStream fis = new FileInputStream(path);
+            ByteArrayOutputStream bfi = new ByteArrayOutputStream()) {
+            int val=0;
             byte[] buffer = new byte[(int) path.length()];
             while ((val = fis.read(buffer)) > 0)
                 bfi.write(buffer,0,1);
             fis.close();
             bfi.close();
-            data = bfi.toByteArray();
+            byte[] data = bfi.toByteArray();
 
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
-        return data;
+
+      */
     }
     static public void Start (String path, String topatch) throws Exception{
-    byte[] data = ReadFromFile(path);
-        for (byte c: data
+   char[] data = ReadFromFile(path);
+
+        for (char c: data
              ) {
-            System.out.println((char) c);
+            String out = new String(Character.toString(c));
+            System.out.println(out);
         }
 
 
