@@ -30,7 +30,7 @@ public class PasswordGenerator {
         if (src.nextLine().equalsIgnoreCase("yes"))
             scharacters = true;
 
-        for (int i = 0; i <= longsT; i++) {
+        for (int i = 0; i <= longsT -1; i++) {
             String password = "";
             for (int ac = 0; ac <= longs - 1; ac++) {
                 password = password + (char) Swap(number, upper, scharacters);
@@ -64,7 +64,7 @@ public class PasswordGenerator {
         char c = (char) (r.nextInt(6) + '['); //first scpecsimbol alphabe
         char d = (char) (r.nextInt(4) + '{'); //first scpecsimbol alphabe
         int[] arr = {a, b, c, d};
-        int i = r.nextInt(3);
+        int i = r.nextInt(4); //смущает такой рендом должна быть цифра 3
         return arr[i];
     }
 
@@ -83,8 +83,11 @@ public class PasswordGenerator {
             c = RandomAlphaSmall();
             int[] arr = {b, c};
             Random r1 = new Random();
-            int i = r1.nextInt(1);
+            int i = r1.nextInt(2);//смущает такой рендом должна быть цифра 1 (с 0 до 1 для генерации 0 1)
             up = arr[i];
+        }
+        else {
+            up = RandomAlphaSmall();
         }
         if (schar)
             sch = RandomAllSymbol();
@@ -92,7 +95,7 @@ public class PasswordGenerator {
         Random r2 = new Random();
         int[] arr = {num, up, sch};
         while (true) {
-            int i = r2.nextInt(2);
+            int i = r2.nextInt( 3); //смущает такой рендом должна быть цифра 2 (с 0 до 2 для генерации 0 1 2 )
             if (arr[i] >= 0) {
                 return arr[i];
             }
