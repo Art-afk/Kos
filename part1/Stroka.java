@@ -14,45 +14,18 @@ public class Stroka {
         Scanner myScannerIn = new Scanner(System.in);
         System.out.println("Введите строку которую надо проверить: ");
         long m = System.currentTimeMillis();
-      //  String str = myScannerIn.nextLine();
-        String str = "asdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadho";
-
-        int i = 0;
-        int low =0;
-        int hight = str.length()-1;
-        int medi = (low + hight) / 6;
-        System.out.println("Средне число " + medi);
-        int count = 0;
-        byte[] stoka = str.getBytes(StandardCharsets.UTF_8);
-        /*
-        while ( i < str.length()-1) {
-        int len = str.length()-1;
-            while (len > i) {
-                if (str.charAt(i) == str.charAt(len)){
-                    count++;
-                }
-                    len--;
+        //  String str = myScannerIn.nextLine();
+        String str = "asdilhgbhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadho";
+        boolean[] arr = new boolean[128];
+        for (char c : str.toCharArray()) {
+            if (arr[c]){
+                System.out.println("повтор: " + c);
+                System.out.println("повтор есть");
+                break;
+            }else{
+                arr[c] = true;
             }
-           i++;
         }
-
-
-
-
-      //  for ()
-
-        //   if (count > 0) System.out.println("В строке ЕСТЬ повторяющиеся символы");
-        //else System.out.println("В строке НЕТ повторяющихся символов");
-
-
-         */
-        for (byte c: stoka
-             ) {
-            System.out.println("byte: " + c + " Char to: " + (char) c);
-        }
-
         System.out.println((double) (System.currentTimeMillis() - m));
-
-
     } //main
 }//class
