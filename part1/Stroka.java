@@ -4,9 +4,10 @@ package part1;
 
 
 уменьшить в половину длинну поиска
+//Сделано
  */
 
-import java.nio.charset.StandardCharsets;
+
 import java.util.Scanner;
 
 public class Stroka {
