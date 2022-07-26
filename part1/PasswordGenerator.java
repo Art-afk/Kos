@@ -5,9 +5,7 @@ package part1;
  */
 
 import java.util.Scanner;
-import java.util.concurrent.ThreadLocalRandom;
 import java.util.*;
-import java.util.stream.IntStream;
 
 
 public class PasswordGenerator {
@@ -18,8 +16,8 @@ public class PasswordGenerator {
         Scanner src = new Scanner(System.in);
         System.out.println("Какой длинны нужен пароль?");
         int longs = Integer.parseInt(src.nextLine());
-        System.out.println("Сколько сгенерировать?");
-        int longsT = Integer.parseInt(src.nextLine());
+       // System.out.println("Сколько сгенерировать?");
+        // int longsT = Integer.parseInt(src.nextLine());
         System.out.println("Использовать Цифры?(yes/NO");
         if (src.nextLine().equalsIgnoreCase("yes"))
             number = true;
@@ -30,34 +28,37 @@ public class PasswordGenerator {
         if (src.nextLine().equalsIgnoreCase("yes"))
             scharacters = true;
 
-        for (int i = 0; i <= longsT -1; i++) {
+        System.out.println(generate(longs,number, upper, scharacters));
+    }
+
+    public static String generate(int longs, boolean number, boolean upper, boolean scharacters){
+      //  for (int i = 0; i <= longsT -1; i++) {
             String password = "";
             for (int ac = 0; ac <= longs - 1; ac++) {
                 password = password + (char) Swap(number, upper, scharacters);
             }
-            System.out.println(password);
-        }
+            return password;
+       // }
     }
-
-    public static int RandomAlphaBig() {
+    public static int randomAlphaBig() {
         Random r = new Random();
         char c = (char) (r.nextInt(26) + 'A'); //all BIG alphabet
         return c;
     }
 
-    public static int RandomAlphaSmall() {
+      public static int randomAlphaSmall() {
         Random r = new Random();
         char c = (char) (r.nextInt(26) + 'a'); //all BIG alphabet
         return c;
     }
 
-    public static int RandomAllNumber() {
+    public static int randomAllNumber() {
         Random r = new Random();
         char c = (char) (r.nextInt(10) + '0'); //all numbers
         return c;
     }
 
-    public static int RandomAllSymbol() {
+    public static int randomAllSymbol() {
         Random r = new Random();
         char a = (char) (r.nextInt(16) + ' '); //first scpecsimbol alphabe
         char b = (char) (r.nextInt(7) + ':'); //first scpecsimbol alphabe
@@ -68,29 +69,31 @@ public class PasswordGenerator {
         return arr[i];
     }
 
+
     public static int Swap(boolean number, boolean upper, boolean schar) {
+        //собираем всё в кучу и возвращаем рандомный символ в соответствие с выбором пользователя
         int num = -1;
         int up = -1;
         int sch = -1;
         if (number) {
-            num = RandomAllNumber();
+            num = randomAllNumber();
 
         }
         if (upper) {
             int b = 0;
             int c = 0;
-            b = RandomAlphaBig();
-            c = RandomAlphaSmall();
+            b = randomAlphaBig();
+            c = randomAlphaSmall();
             int[] arr = {b, c};
             Random r1 = new Random();
             int i = r1.nextInt(2);//смущает такой рендом должна быть цифра 1 (с 0 до 1 для генерации 0 1)
             up = arr[i];
         }
         else {
-            up = RandomAlphaSmall();
+            up = randomAlphaSmall();
         }
         if (schar)
-            sch = RandomAllSymbol();
+            sch = randomAllSymbol();
 
         Random r2 = new Random();
         int[] arr = {num, up, sch};
