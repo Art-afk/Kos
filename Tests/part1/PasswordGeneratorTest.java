@@ -120,7 +120,7 @@ public class PasswordGeneratorTest {
     @Test
       public void swap() {
        for (int i =0; i<100000; i++) {
-            int a = PasswordGenerator.Swap(true,true,true);
+            int a = PasswordGenerator.swap(true,true,true);
             assertTrue( a >= 0 && a <=127);
 
         }

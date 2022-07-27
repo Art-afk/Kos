@@ -35,7 +35,7 @@ public class PasswordGenerator {
       //  for (int i = 0; i <= longsT -1; i++) {
             String password = "";
             for (int ac = 0; ac <= longs - 1; ac++) {
-                password = password + (char) Swap(number, upper, scharacters);
+                password = password + (char) swap(number, upper, scharacters);
             }
             return password;
        // }
@@ -70,7 +70,7 @@ public class PasswordGenerator {
     }
 
 
-    public static int Swap(boolean number, boolean upper, boolean schar) {
+    public static int swap(boolean number, boolean upper, boolean schar) {
         //собираем всё в кучу и возвращаем рандомный символ в соответствие с выбором пользователя
         int num = -1;
         int up = -1;
