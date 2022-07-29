@@ -1,4 +1,6 @@
 package part1;
+
+
 /*
 Составить таблицу значений функции y = 5 - x2/2 на отрезке [-5; 5] с шагом 0.5.
 Решение
@@ -9,45 +11,25 @@ package part1;
 4.вывести на экран значение x и y,
 5.увеличить x на заданный шаг.
 
-|x|-5|-4.5|-4|-3.5|-3|-2.5|-2|-1.5|-1|-0.5| 0 |0.5|1|1.5|2|2.5|3|3.5|4|4.5|5|
-|y|-5|-4.5|-4|-3.5|-3|-2.5|-2|-1.5|-1|-0.5| 0 |0.5|1|1.5|2|2.5|3|3.5|4|4.5|5|
-var
-    x, y: real;
+*/
 
-begin
-    x := -5;
-
-    writeln(' x      y  ');
-
-    while x <= 5 do begin
-        y := 5 - x*x/2;
-        writeln(x:4:1,' | ',y:5:2);
-        x := x + 0.5
-    end;
-end.
-
-
- */
+import java.math.BigDecimal;
 
 public class TableOfFunctionValues {
-    public static void main(String[] args) {
-        double step = 0.5;
-        double x = 5; //максимальный Х
-        double minX = -5;//минимальный Х
-        int i = 0;
-        while (x >= minX) { //подсчитываем сколько у нас всего значений
-          //  System.out.println(i + "     " + x);
-            x = x - step;
-            i++;
-        }
-        double[] arraX = new double[i];
-        double[] arraY = new double[i];
-       for (int z =0; z <= arraX.length-1; z++){//заполняем массив и выводим
-           arraX[z] = minX;
-           arraY[z] = 5 - (arraX[z] * 2 / 2);
-           minX = minX + step;
-           System.out.println("значение X: " + arraX[z] + " Значение Y: " + arraY[z]);
-       }
 
+    public static void reshenie(){
+        double x = -5;
+        double y =0;
+
+        System.out.println(" x   |  y" );
+        while ( x <= 5){
+            y = 5 - x * x/2;
+            System.out.println(x + " | " + y);
+            x = x + 0.5;
+        }
+
+    }
+    public static void main(String[] args) {
+        reshenie();
     }
 }
