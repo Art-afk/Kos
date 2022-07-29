@@ -16,9 +16,7 @@ public class Stroka {
         System.out.println("Введите строку которую надо проверить: ");
         long m = System.currentTimeMillis();
          String str = myScannerIn.nextLine();
-        //String str = "asdilhgbhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadhogertyhjzxvnkalrjhytgOGIUUDHFGUAldgh5et3405680hrgkldzfnblN'o;IHRGoiehr4803IOHSGHGhisasdilhgiadho";
-        //String str = "asdilhgbhogertyhjzxvnkalr";
-    if(foundX(str))
+    if(tryToFound(str))
         System.out.println("повтор есть");
         else
         System.out.println("повторов нет");
@@ -26,12 +24,10 @@ public class Stroka {
         System.out.println((double) (System.currentTimeMillis() - m)); //время выполнения
     } //main
 
-    public static boolean foundX(String str) {
+    public static boolean tryToFound(String str) {
         boolean[] arr = new boolean[128];
         for (char c : str.toCharArray()) {
             if (arr[c]){
-                //System.out.println("повтор: " + c);
-                // System.out.println("повтор есть");
                 return true;
             }else{
                 arr[c] = true;
