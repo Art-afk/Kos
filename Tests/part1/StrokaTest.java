@@ -22,8 +22,8 @@ public class StrokaTest {
     }
 
     @Test
-    public void foundX() {
-       boolean actual = Stroka.foundX("asdilhgbhogertyhjzxvnkalr");
+    public void checkStringOnRepeats() {
+       boolean actual = Stroka.checkStringOnRepeats("asdilhgbhogertyhjzxvnkalr");
        boolean expected = true;
         assertEquals(expected, actual);
     }
