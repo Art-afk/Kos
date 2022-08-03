@@ -16,7 +16,6 @@ public class Stroka {
         System.out.println("Введите строку которую надо проверить: ");
         long m = System.currentTimeMillis();
          String str = myScannerIn.nextLine();
-        //String str = "asdilhgbhogertyhjzxvnkalr";
     if(checkStringOnRepeats(str))
         System.out.println("повтор есть");
         else
@@ -29,8 +28,6 @@ public class Stroka {
         boolean[] arr = new boolean[128];
         for (char c : str.toCharArray()) {
             if (arr[c]){
-                //System.out.println("повтор: " + c);
-                // System.out.println("повтор есть");
                 return true;
             }else{
                 arr[c] = true;
