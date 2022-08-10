@@ -31,16 +31,17 @@ public class SpravochnikTest {
 
     @Test
     public void randomSalaryGenerate() {
-        for (int i =0; i<100000; i++) {
+        for (int i =0; i<1000000; i++) {
             int a = 10000;
             int b = 50000;
             int random = Spravochnik.randomSalaryGenerate(a, b);
             assertTrue("Error, not range", (random >= a && random <= b));
+
         }
     }
 
     @Test
-    public void checkMinMaxSalary() {
+    public void getMinSalary() {
         ArrayList<Integer> Array = new ArrayList<>();
         Array.add(8);
         Array.add(9);
@@ -48,8 +49,19 @@ public class SpravochnikTest {
         Array.add(2);
         Array.add(5);
         Array.add(1);
-        assertEquals("Error, function din't work",1, Spravochnik.checkMinMaxSalary(Array,"min"));
-        assertEquals("Error, function din't work", 9, Spravochnik.checkMinMaxSalary(Array,"max"));
+        assertEquals("Error, function didn't work",1, Spravochnik.getMinSalary(Array));
+
+    }
+    @Test
+    public void getMaxSalary() {
+        ArrayList<Integer> Array = new ArrayList<>();
+        Array.add(8);
+        Array.add(9);
+        Array.add(4);
+        Array.add(2);
+        Array.add(5);
+        Array.add(1);
+        assertEquals("Error, function didn't work", 9, Spravochnik.getMaxSalary(Array));
 
     }
     @Ignore
