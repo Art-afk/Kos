@@ -11,7 +11,7 @@ import java.util.Collections;
 3.Посчитать зарплату после уплаты налогов и вывести в формате <Имя> - <на руки> - <налог>
  */
 public class Spravochnik {
-    public static boolean debug = false;
+    public static boolean debug = true;
     public static int minSalary = 25000;
     public static int maxSalary = 100000;
 
@@ -19,10 +19,12 @@ public class Spravochnik {
         int tax = 13;
         // createPeopleBase();
         Map<String,Integer> peopleSalary = createPeopleBase();
-        int minimumSalary = getMinSalary(peopleSalary);
-        int maximumISalary = getMaxSalary(values);
+        ArrayList minimumSalary = getMinSalary(peopleSalary);
+       // int maximumISalary = getMaxSalary(values);
+
+
         if (debug) System.out.println("minimumsAlary " + minimumSalary); //debug
-        if (debug) System.out.println("maximumAlary " + maximumISalary); //debug
+    //    if (debug) System.out.println("maximumAlary " + maximumISalary); //debug
         //System.out.println("Minimum salary: " + getKeyFromMapValue(peopleSalary, minimumSalary) + " " + minimumSalary);
         //System.out.println("Maximum salary: " + getKeyFromMapValue(peopleSalary, maximumISalary) + " " + maximumISalary);
        // checkAverageMediumSalary(peopleSalary, values);
@@ -30,7 +32,7 @@ public class Spravochnik {
        // checkSalaryAfterTax(peopleSalary, tax);// print all salary after pay tax
     }
 
-    public static Map createPeopleBase() {
+    public static Map<String, Integer> createPeopleBase() {
         Map<String, Integer> peopleSalary = new HashMap<String, Integer>();
         peopleSalary.put("Vasya", randomSalaryGenerate(minSalary, maxSalary));//1
         peopleSalary.put("Petya", randomSalaryGenerate(minSalary, maxSalary));//2
@@ -59,18 +61,49 @@ public class Spravochnik {
         return i;
     }//randomSalaryGenerate
 
-    public static int getMinSalary(Map<String,Integer> peopleSalary) {
+    public static ArrayList getMinSalary(Map<String,Integer> peopleSalary) {
+        ArrayList<String> list = new ArrayList();
+        int value = Integer.MAX_VALUE;
+        String fio = "";
+        for (String key : peopleSalary.keySet()
+        ) {
+            if (value > peopleSalary.get(key)) {
+                value = peopleSalary.get(key);
+                fio = key;
+
+            }
+        }
+        list.add(fio);
+        for (String key : peopleSalary.keySet()
+        ) {
+            if (value == peopleSalary.get(key) && !fio.equals(key)) {
+                list.add(key);
+
+            }
+        }
+        System.out.println(value);
+
+    return list;
+    }
+
+
+    /*public static int getMinSalary(Map<String,Integer> peopleSalary) {
         //if(debug)  System.out.println("all salary " + list); //debug
         int i = 0;
+        int minimum = Collections.min(peopleSalary.values());
+        //if(debug)System.out.println("minimum: " + minimum);
         for (Map.Entry<String,Integer> c: peopleSalary.entrySet()
              ) {
-
-            c.getValue().
+                if(c.getValue() == minimum  )
+            if(debug)System.out.println("Name and ZP: "+c.getKey() +" "+ c.getValue());
+            //Name and ZP: Olga 25492
         }
-            return minimum;
+            return i;
 
     } //checkMinMaxSalary
 
+
+     */
     public static int getMaxSalary(ArrayList list) {
         //if(debug)  System.out.println("all salary " + list); //debug
         int i = 0;
@@ -82,7 +115,7 @@ public class Spravochnik {
 
     public static void checkAverageMediumSalary(Map peopleMap) {
         int summ = 0;
-        for (Object c : salaryArray
+        for (Object c : peopleMap.keySet()
         ) {
             if (debug) System.out.println("salary " + c); //debug
             summ = (int) c + summ;
@@ -90,10 +123,10 @@ public class Spravochnik {
         if (debug) System.out.println("Median: " + summ / peopleMap.size()); //debug
         System.out.println("-----------------------------------");
         System.out.println("Employee with above average salary: ");
-        for (Object salary : salaryArray
+        for (Object salary : peopleMap.keySet()
         ) {
             if ((int) salary > summ / peopleMap.size())
-                System.out.println(getKeyFromMapValue(peopleMap, salary) + " " + salary);
+                System.out.println((salary) + " " + salary);
         }
     }
 
