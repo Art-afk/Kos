@@ -67,8 +67,9 @@ public class Spravochnik {
         String fio = "";
         for (String key : peopleSalary.keySet()
         ) {
-            if (value > peopleSalary.get(key)) {
-                value = peopleSalary.get(key);
+            int salary = peopleSalary.get(key);
+            if (value > salary) {
+                value = salary;
                 fio = key;
 
             }
@@ -86,24 +87,6 @@ public class Spravochnik {
     return list;
     }
 
-
-    /*public static int getMinSalary(Map<String,Integer> peopleSalary) {
-        //if(debug)  System.out.println("all salary " + list); //debug
-        int i = 0;
-        int minimum = Collections.min(peopleSalary.values());
-        //if(debug)System.out.println("minimum: " + minimum);
-        for (Map.Entry<String,Integer> c: peopleSalary.entrySet()
-             ) {
-                if(c.getValue() == minimum  )
-            if(debug)System.out.println("Name and ZP: "+c.getKey() +" "+ c.getValue());
-            //Name and ZP: Olga 25492
-        }
-            return i;
-
-    } //checkMinMaxSalary
-
-
-     */
     public static int getMaxSalary(ArrayList list) {
         //if(debug)  System.out.println("all salary " + list); //debug
         int i = 0;

@@ -3,7 +3,7 @@ package part1;
 import org.junit.Ignore;
 import org.junit.Test;
 import part1.Spravochnik;
-
+import org.junit.jupiter.Assertions;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -42,14 +42,21 @@ public class SpravochnikTest {
 
     @Test
     public void getMinSalary() {
-        ArrayList<Integer> Array = new ArrayList<>();
-        Array.add(8);
-        Array.add(9);
-        Array.add(4);
-        Array.add(2);
-        Array.add(5);
-        Array.add(1);
-        assertEquals("Error, function didn't work",1, Spravochnik.getMinSalary(Array));
+        Map<String, Integer> peopleSalary = new HashMap<String, Integer>();
+        ArrayList<String> Array = new ArrayList<>();
+        peopleSalary.put("Vasya", 45000);//1
+        peopleSalary.put("Petya", 77000);//2
+        peopleSalary.put("Olga", 78000);//3
+        peopleSalary.put("Anna", 35000);//4
+        peopleSalary.put("Kostya", 89000);//5
+        peopleSalary.put("Korge", 35000);//6
+        Array = Spravochnik.getMinSalary(peopleSalary);
+        for (String key : Array
+             ) {
+
+        }
+        assertArrayEquals("Error,function didn't work",{"Anna","Korge"},{Spravochnik.getMinSalary(peopleSalary)});
+
 
     }
     @Test
