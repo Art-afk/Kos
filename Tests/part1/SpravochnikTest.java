@@ -21,14 +21,6 @@ public class SpravochnikTest {
         assertNotNull("Error, Map not generate", Spravochnik.createPeopleBase());
     }
 
-    @Ignore
-    @Test
-    public void getKeyFromMapValue() {
-        Map<String, Integer> myTestMap = new HashMap<String, Integer>();
-        myTestMap.put("Vasya", 10000);//1
-        //assertEquals("Vasya",Spravochnik.getKeyFromMapValue(myTestMap,10000));
-    }
-
     @Test
     public void randomSalaryGenerate() {
         for (int i =0; i<1000000; i++) {
@@ -85,7 +77,7 @@ public class SpravochnikTest {
         }
         assertEquals("Error, function not work",2,i);
     }
-    @Ignore
+
     @Test
     public void getAverageMediumSalary() {
         Map<String, Integer> peopleSalary = new HashMap<String, Integer>();
@@ -106,10 +98,7 @@ public class SpravochnikTest {
             }
 
         }
-        assertEquals("Error, function not work",3,i);
+        assertEquals("Error, function not work" + myarray,3,i);
     }
-    @Ignore
-    @Test
-    public void checkSalaryAfterTax() {
-    }
+
 }

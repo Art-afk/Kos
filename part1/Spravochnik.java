@@ -11,7 +11,7 @@ import java.util.*;
 3.Посчитать зарплату после уплаты налогов и вывести в формате <Имя> - <на руки> - <налог>
  */
 public class Spravochnik {
-    public static boolean debug = true;
+    public static boolean debug = false;
     public static int minSalary = 25000;
     public static int maxSalary = 100000;
 
@@ -22,12 +22,11 @@ public class Spravochnik {
         ArrayList minimumSalary = getMinSalary(peopleSalary);
         ArrayList maximumISalary = getMaxSalary(peopleSalary);
         ArrayList mediumSalary =  getAverageMediumSalary(peopleSalary);
-        //    if (debug) System.out.println("maximumAlary " + maximumISalary); //debug
         System.out.println("Minimum salary: " + minimumSalary);
         System.out.println("Maximum salary: " + maximumISalary);
-
+        System.out.println("People with above average salaries: " + mediumSalary);
         if (debug) System.out.println("*debug* " + peopleSalary);
-        // checkSalaryAfterTax(peopleSalary, tax);// print all salary after pay tax
+         getSalaryAfterTax(peopleSalary, tax);// print all salary after pay tax
     }
 
     public static Map<String, Integer> createPeopleBase() {
@@ -107,27 +106,27 @@ public class Spravochnik {
     } //checkMaxSalary
 
 
-    public static ArrayList getAverageMediumSalary(Map peopleMap) {
+    public static ArrayList getAverageMediumSalary(Map<String, Integer> peopleMap) {
            /*
         find medium salary in map and return key(FIO)
          */
-        int summ = 0;
-        for (Object c : peopleMap.keySet()
+        ArrayList<String> list = new ArrayList();
+        int medium = 0;
+        for (String key : peopleMap.keySet()
         ) {
-            if (debug) System.out.println("*debug* salary " + c); //debug
-            summ = (int) c + summ;
+            if (debug) System.out.println("*debug* salary " + key); //debug
+            medium = (int) peopleMap.get(key) + medium;
         }
-        if (debug) System.out.println("*debug* Median: " + summ / peopleMap.size()); //debug
-        System.out.println("-----------------------------------");
-        System.out.println("Employee with above average salary: ");
-        for (Object salary : peopleMap.keySet()
+        if (debug) System.out.println("*debug* Medium: " + medium / peopleMap.size()); //debug
+        for (String key : peopleMap.keySet()
         ) {
-            if ((int) salary > summ / peopleMap.size())
-                System.out.println((salary) + " " + salary);
+            if (peopleMap.get(key) > (medium / peopleMap.size()))
+                list.add(key);
         }
+        return list;
     }
 
-    public static void checkSalaryAfterTax(Map<String, Integer> peopleMap, int tax) {
+    public static void getSalaryAfterTax(Map<String, Integer> peopleMap, int tax) {
         //3.Посчитать зарплату после уплаты налогов и вывести в формате <Имя> - <на руки> - <налог>
         System.out.println("-----------------------------------");
         for (String entry : peopleMap.keySet()
