@@ -2,7 +2,7 @@ package part1;
 
 import org.junit.Ignore;
 import org.junit.Test;
-import part1.Spravochnik;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -66,7 +66,7 @@ public class SpravochnikTest {
         peopleSalary.put("Anna", 35000);//4
         peopleSalary.put("Kostya", 87000);//5
         peopleSalary.put("Korge", 87000);//6
-        myarray = Spravochnik.getMaxSalary(peopleSalary);
+        myarray = part1.Spravochnik.getMaxSalary(peopleSalary);
         int i = 0;
         for (String c: myarray
         ) {
@@ -79,7 +79,7 @@ public class SpravochnikTest {
     }
 
     @Test
-    public void getAverageMediumSalary() {
+    public void filterAboveAverage () {
         Map<String, Integer> peopleSalary = new HashMap<String, Integer>();
         ArrayList<String> myarray = new ArrayList<>();
         peopleSalary.put("Vasya", 45000);//1
@@ -89,7 +89,7 @@ public class SpravochnikTest {
         peopleSalary.put("Kostya", 87000);//5
         peopleSalary.put("Korge", 25000);//6
         //57833 medium
-        myarray = Spravochnik.getAverageMediumSalary(peopleSalary);
+        myarray = part1.Spravochnik.filterAboveAverage(peopleSalary);
         int i = 0;
         for (String c: myarray
         ) {

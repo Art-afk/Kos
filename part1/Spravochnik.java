@@ -1,6 +1,7 @@
 package part1;
 
 import java.util.*;
+import ja
 
 /*
 Необходимо создать справочник с типом. <Имя, Зарплата>, добавить туда 10 имён, зарплаты внести
@@ -21,11 +22,12 @@ public class Spravochnik {
         Map<String, Integer> peopleSalary = createPeopleBase();
         ArrayList minimumSalary = getMinSalary(peopleSalary);
         ArrayList maximumISalary = getMaxSalary(peopleSalary);
-        ArrayList mediumSalary =  getAverageMediumSalary(peopleSalary);
+        ArrayList mediumSalary =  filterAboveAverage(peopleSalary);
         System.out.println("Minimum salary: " + minimumSalary);
         System.out.println("Maximum salary: " + maximumISalary);
         System.out.println("People with above average salaries: " + mediumSalary);
         if (debug) System.out.println("*debug* " + peopleSalary);
+        Map peopleSalaryAndTax = getSalaryAfterTax(peopleSalary,tax);
          getSalaryAfterTax(peopleSalary, tax);// print all salary after pay tax
     }
 
@@ -62,77 +64,81 @@ public class Spravochnik {
         /*
         find minimum salary in map and return key(FIO)
          */
-        ArrayList<String> list = new ArrayList();
-        int value = Integer.MAX_VALUE;
+        ArrayList<String> peopleListMinSalary = new ArrayList();
+        int minSalary = Integer.MAX_VALUE;
         for (String key : peopleSalary.keySet()
         ) {
-            int salary = peopleSalary.get(key);
-            if (value >= salary) {
-                if (value == salary)
-                    list.add(key);
+            int curentSalary = peopleSalary.get(key);
+            if (curentSalary <= minSalary) {
+                if (minSalary == curentSalary)
+                    peopleListMinSalary.add(key);
                 else {
-                    list.clear();
-                    list.add(key);
+                    peopleListMinSalary.clear();
+                    peopleListMinSalary.add(key);
                 }
-                value = salary;
+                minSalary = curentSalary;
             }
         }
-        if (debug) System.out.println("*Debug* minimum salary: " + value + " " + list);
+        if (debug) System.out.println("*Debug* minimum salary: " + minSalary + " " + peopleListMinSalary);
 
-        return list;
+        return peopleListMinSalary;
     }
 
     public static ArrayList getMaxSalary(Map<String, Integer> peopleSalary) {
           /*
         find maximum salary in map and return key(FIO)
          */
-        ArrayList<String> list = new ArrayList();
-        int value = 0;
+        ArrayList<String> peopleListMaxSalary = new ArrayList();
+        int maxSalary = 0;
         for (String key : peopleSalary.keySet()
         ) {
-            int salary = peopleSalary.get(key);
-            if (value <= salary) {
-                if (value == salary)
-                    list.add(key);
+            int curentSalary = peopleSalary.get(key);
+            if (curentSalary >= maxSalary) {
+                if (maxSalary == curentSalary)
+                    peopleListMaxSalary.add(key);
                 else {
-                    list.clear();
-                    list.add(key);
+                    peopleListMaxSalary.clear();
+                    peopleListMaxSalary.add(key);
                 }
-                value = salary;
+                maxSalary = curentSalary;
             }
         }
-        if (debug) System.out.println("*Debug* maximum salary: " + value + " " + list);
-        return list;
+        if (debug) System.out.println("*Debug* maximum salary: " + maxSalary + " " + peopleListMaxSalary);
+        return peopleListMaxSalary;
     } //checkMaxSalary
 
 
-    public static ArrayList getAverageMediumSalary(Map<String, Integer> peopleMap) {
+    public static ArrayList filterAboveAverage(Map<String, Integer> peopleMap) {
            /*
         find medium salary in map and return key(FIO)
          */
-        ArrayList<String> list = new ArrayList();
-        int medium = 0;
+        ArrayList<String> peopleMediumSalaryList = new ArrayList();
+        int mediumSalary = 0;
         for (String key : peopleMap.keySet()
         ) {
             if (debug) System.out.println("*debug* salary " + key); //debug
-            medium = (int) peopleMap.get(key) + medium;
+            mediumSalary = (int) peopleMap.get(key) + mediumSalary;
         }
-        if (debug) System.out.println("*debug* Medium: " + medium / peopleMap.size()); //debug
+        if (debug) System.out.println("*debug* Medium: " + mediumSalary / peopleMap.size()); //debug
         for (String key : peopleMap.keySet()
         ) {
-            if (peopleMap.get(key) > (medium / peopleMap.size()))
-                list.add(key);
+            if (peopleMap.get(key) > (mediumSalary / peopleMap.size()))
+                peopleMediumSalaryList.add(key);
         }
-        return list;
+        return peopleMediumSalaryList;
     }
 
-    public static void getSalaryAfterTax(Map<String, Integer> peopleMap, int tax) {
+    public static Map getSalaryAfterTax(Map<String, Integer> peopleMap, int tax) {
         //3.Посчитать зарплату после уплаты налогов и вывести в формате <Имя> - <на руки> - <налог>
-        System.out.println("-----------------------------------");
-        for (String entry : peopleMap.keySet()
+        Map<String, Integer> peopleSalaryAndTax = new HashMap<String, Integer>();
+
+        for (String key : peopleMap.keySet()
         ) {
+
             System.out.println(entry + " Salary: " + ((int) peopleMap.get(entry) - (int) peopleMap.get(entry) * 0.13) + " Tax: " + ((int) peopleMap.get(entry) * 0.13));
+
         }
+        return  peopleSalaryAndTax;
 
     }
 }
