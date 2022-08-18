@@ -1,7 +1,7 @@
 package part1;
 
 import java.util.*;
-import ja
+
 
 /*
 Необходимо создать справочник с типом. <Имя, Зарплата>, добавить туда 10 имён, зарплаты внести
@@ -135,7 +135,7 @@ public class Spravochnik {
         for (String key : peopleMap.keySet()
         ) {
 
-            System.out.println(entry + " Salary: " + ((int) peopleMap.get(entry) - (int) peopleMap.get(entry) * 0.13) + " Tax: " + ((int) peopleMap.get(entry) * 0.13));
+            System.out.println(key + " Salary: " + ((int) peopleMap.get(key) - (int) peopleMap.get(key) * 0.13) + " Tax: " + ((int) peopleMap.get(key) * 0.13));
 
         }
         return  peopleSalaryAndTax;
