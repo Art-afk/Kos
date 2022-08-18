@@ -1,5 +1,4 @@
 package part1;
-
 import java.util.*;
 
 
@@ -131,6 +130,8 @@ public class Spravochnik {
     public static Map getSalaryAfterTax(Map<String, Integer> peopleMap, int tax) {
         //3.Посчитать зарплату после уплаты налогов и вывести в формате <Имя> - <на руки> - <налог>
         Map<String, Integer> peopleSalaryAndTax = new HashMap<String, Integer>();
+        SalaryAndTax salaryAndTax = new SalaryAndTax();
+        Map<String, SalaryAndTax> newMap = new HashMap<String, SalaryAndTax>
 
         for (String key : peopleMap.keySet()
         ) {
