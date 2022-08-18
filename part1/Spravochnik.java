@@ -1,6 +1,6 @@
 package part1;
+
 import java.util.*;
-import java.util.Collections;
 
 /*
 Необходимо создать справочник с типом. <Имя, Зарплата>, добавить туда 10 имён, зарплаты внести
@@ -18,18 +18,16 @@ public class Spravochnik {
     public static void main(String[] args) {
         int tax = 13;
         // createPeopleBase();
-        Map<String,Integer> peopleSalary = createPeopleBase();
+        Map<String, Integer> peopleSalary = createPeopleBase();
         ArrayList minimumSalary = getMinSalary(peopleSalary);
-       // int maximumISalary = getMaxSalary(values);
+        ArrayList maximumISalary = getMaxSalary(peopleSalary);
+        ArrayList mediumSalary =  getAverageMediumSalary(peopleSalary);
+        //    if (debug) System.out.println("maximumAlary " + maximumISalary); //debug
+        System.out.println("Minimum salary: " + minimumSalary);
+        System.out.println("Maximum salary: " + maximumISalary);
 
-
-        if (debug) System.out.println("minimumsAlary " + minimumSalary); //debug
-    //    if (debug) System.out.println("maximumAlary " + maximumISalary); //debug
-        //System.out.println("Minimum salary: " + getKeyFromMapValue(peopleSalary, minimumSalary) + " " + minimumSalary);
-        //System.out.println("Maximum salary: " + getKeyFromMapValue(peopleSalary, maximumISalary) + " " + maximumISalary);
-       // checkAverageMediumSalary(peopleSalary, values);
-        if (debug) System.out.println("debug" + peopleSalary);
-       // checkSalaryAfterTax(peopleSalary, tax);// print all salary after pay tax
+        if (debug) System.out.println("*debug* " + peopleSalary);
+        // checkSalaryAfterTax(peopleSalary, tax);// print all salary after pay tax
     }
 
     public static Map<String, Integer> createPeopleBase() {
@@ -44,7 +42,7 @@ public class Spravochnik {
         peopleSalary.put("Taniya", randomSalaryGenerate(minSalary, maxSalary));//8
         peopleSalary.put("Vasilisa", randomSalaryGenerate(minSalary, maxSalary));//9
         peopleSalary.put("Marina", randomSalaryGenerate(minSalary, maxSalary));//10
-        if (debug) System.out.println("All people and salary " + peopleSalary); //debug
+        if (debug) System.out.println("*debug* All people and salary " + peopleSalary); //debug
         return peopleSalary;
 
     }
@@ -61,49 +59,65 @@ public class Spravochnik {
         return i;
     }//randomSalaryGenerate
 
-    public static ArrayList getMinSalary(Map<String,Integer> peopleSalary) {
+    public static ArrayList getMinSalary(Map<String, Integer> peopleSalary) {
+        /*
+        find minimum salary in map and return key(FIO)
+         */
         ArrayList<String> list = new ArrayList();
         int value = Integer.MAX_VALUE;
-        String fio = "";
         for (String key : peopleSalary.keySet()
         ) {
             int salary = peopleSalary.get(key);
-            if (value > salary) {
+            if (value >= salary) {
+                if (value == salary)
+                    list.add(key);
+                else {
+                    list.clear();
+                    list.add(key);
+                }
                 value = salary;
-                fio = key;
-
             }
         }
-        list.add(fio);
-        for (String key : peopleSalary.keySet()
-        ) {
-            if (value == peopleSalary.get(key) && !fio.equals(key)) {
-                list.add(key);
+        if (debug) System.out.println("*Debug* minimum salary: " + value + " " + list);
 
-            }
-        }
-        System.out.println(value);
-
-    return list;
+        return list;
     }
 
-    public static int getMaxSalary(ArrayList list) {
-        //if(debug)  System.out.println("all salary " + list); //debug
-        int i = 0;
-        int maximum = (int) Collections.max(list);
-            return maximum;
-
+    public static ArrayList getMaxSalary(Map<String, Integer> peopleSalary) {
+          /*
+        find maximum salary in map and return key(FIO)
+         */
+        ArrayList<String> list = new ArrayList();
+        int value = 0;
+        for (String key : peopleSalary.keySet()
+        ) {
+            int salary = peopleSalary.get(key);
+            if (value <= salary) {
+                if (value == salary)
+                    list.add(key);
+                else {
+                    list.clear();
+                    list.add(key);
+                }
+                value = salary;
+            }
+        }
+        if (debug) System.out.println("*Debug* maximum salary: " + value + " " + list);
+        return list;
     } //checkMaxSalary
 
 
-    public static void checkAverageMediumSalary(Map peopleMap) {
+    public static ArrayList getAverageMediumSalary(Map peopleMap) {
+           /*
+        find medium salary in map and return key(FIO)
+         */
         int summ = 0;
         for (Object c : peopleMap.keySet()
         ) {
-            if (debug) System.out.println("salary " + c); //debug
+            if (debug) System.out.println("*debug* salary " + c); //debug
             summ = (int) c + summ;
         }
-        if (debug) System.out.println("Median: " + summ / peopleMap.size()); //debug
+        if (debug) System.out.println("*debug* Median: " + summ / peopleMap.size()); //debug
         System.out.println("-----------------------------------");
         System.out.println("Employee with above average salary: ");
         for (Object salary : peopleMap.keySet()
@@ -117,7 +131,7 @@ public class Spravochnik {
         //3.Посчитать зарплату после уплаты налогов и вывести в формате <Имя> - <на руки> - <налог>
         System.out.println("-----------------------------------");
         for (String entry : peopleMap.keySet()
-             ) {
+        ) {
             System.out.println(entry + " Salary: " + ((int) peopleMap.get(entry) - (int) peopleMap.get(entry) * 0.13) + " Tax: " + ((int) peopleMap.get(entry) * 0.13));
         }
 

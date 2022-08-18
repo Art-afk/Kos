@@ -3,7 +3,6 @@ package part1;
 import org.junit.Ignore;
 import org.junit.Test;
 import part1.Spravochnik;
-import org.junit.jupiter.Assertions;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -22,11 +21,12 @@ public class SpravochnikTest {
         assertNotNull("Error, Map not generate", Spravochnik.createPeopleBase());
     }
 
+    @Ignore
     @Test
     public void getKeyFromMapValue() {
         Map<String, Integer> myTestMap = new HashMap<String, Integer>();
         myTestMap.put("Vasya", 10000);//1
-        assertEquals("Vasya",Spravochnik.getKeyFromMapValue(myTestMap,10000));
+        //assertEquals("Vasya",Spravochnik.getKeyFromMapValue(myTestMap,10000));
     }
 
     @Test
@@ -43,47 +43,70 @@ public class SpravochnikTest {
     @Test
     public void getMinSalary() {
         Map<String, Integer> peopleSalary = new HashMap<String, Integer>();
-        ArrayList<String> Array = new ArrayList<>();
+        ArrayList<String> myarray = new ArrayList<>();
         peopleSalary.put("Vasya", 45000);//1
         peopleSalary.put("Petya", 77000);//2
         peopleSalary.put("Olga", 78000);//3
         peopleSalary.put("Anna", 35000);//4
-        peopleSalary.put("Kostya", 89000);//5
+        peopleSalary.put("Kostya", 87000);//5
         peopleSalary.put("Korge", 35000);//6
-        Array = Spravochnik.getMinSalary(peopleSalary);
-        for (String key : Array
+        myarray = Spravochnik.getMinSalary(peopleSalary);
+        int i = 0;
+        for (String c: myarray
              ) {
+           if (c.equals("Anna") || c.equals("Korge")){
+               i++;
+           }
 
         }
-        assertArrayEquals("Error,function didn't work",{"Anna","Korge"},{Spravochnik.getMinSalary(peopleSalary)});
+        assertEquals("Error, function not work",2,i);
+
 
 
     }
     @Test
     public void getMaxSalary() {
-        ArrayList<Integer> Array = new ArrayList<>();
-        Array.add(8);
-        Array.add(9);
-        Array.add(4);
-        Array.add(2);
-        Array.add(5);
-        Array.add(1);
-        assertEquals("Error, function didn't work", 9, Spravochnik.getMaxSalary(Array));
+        Map<String, Integer> peopleSalary = new HashMap<String, Integer>();
+        ArrayList<String> myarray = new ArrayList<>();
+        peopleSalary.put("Vasya", 45000);//1
+        peopleSalary.put("Petya", 77000);//2
+        peopleSalary.put("Olga", 78000);//3
+        peopleSalary.put("Anna", 35000);//4
+        peopleSalary.put("Kostya", 87000);//5
+        peopleSalary.put("Korge", 87000);//6
+        myarray = Spravochnik.getMaxSalary(peopleSalary);
+        int i = 0;
+        for (String c: myarray
+        ) {
+            if (c.equals("Kostya") || c.equals("Korge")){
+                i++;
+            }
 
+        }
+        assertEquals("Error, function not work",2,i);
     }
     @Ignore
     @Test
-    public void checkAverageMediumSalary() {
-        Map<String, Integer> myTestMap = new HashMap<String, Integer>();
-        ArrayList<Integer> values = new ArrayList<>(myTestMap.values());
-        myTestMap.put("Vasya", 10000);//1
-        myTestMap.put("T", 22000);//1
-        myTestMap.put("A", 50000);//1
-        myTestMap.put("B", 70000);//1
-        myTestMap.put("U", 67000);//1
-        myTestMap.put("V", 35000);//1
-      //  System.out.println("a");
-      //  assertEquals("asd",Spravochnik.checkAverageMediumSalary(myTestMap,values));
+    public void getAverageMediumSalary() {
+        Map<String, Integer> peopleSalary = new HashMap<String, Integer>();
+        ArrayList<String> myarray = new ArrayList<>();
+        peopleSalary.put("Vasya", 45000);//1
+        peopleSalary.put("Petya", 77000);//2
+        peopleSalary.put("Olga", 78000);//3
+        peopleSalary.put("Anna", 35000);//4
+        peopleSalary.put("Kostya", 87000);//5
+        peopleSalary.put("Korge", 25000);//6
+        //57833 medium
+        myarray = Spravochnik.getAverageMediumSalary(peopleSalary);
+        int i = 0;
+        for (String c: myarray
+        ) {
+            if (c.equals("Petya") || c.equals("Olga") || c.equals("Kostya")){
+                i++;
+            }
+
+        }
+        assertEquals("Error, function not work",3,i);
     }
     @Ignore
     @Test
