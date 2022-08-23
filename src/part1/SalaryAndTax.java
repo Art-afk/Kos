@@ -1,8 +1,6 @@
 package part1;
 
 public class SalaryAndTax {
-
-
     int salary;
     int tax;
 

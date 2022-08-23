@@ -128,18 +128,18 @@ public class Spravochnik {
     }
 
     public static Map getSalaryAfterTax(Map<String, Integer> peopleMap, int tax) {
+        //https://overcoder.net/q/95361/hashmap-%D0%BE%D0%B4%D0%B8%D0%BD-%D0%BA%D0%BB%D1%8E%D1%87-%D0%BD%D0%B5%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE-%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B9
+        //https://stackoverflow.com/questions/12536683/multiple-values-for-a-key-in-hashmap-in-java
         //3.Посчитать зарплату после уплаты налогов и вывести в формате <Имя> - <на руки> - <налог>
-        Map<String, Integer> peopleSalaryAndTax = new HashMap<String, Integer>();
-        SalaryAndTax salaryAndTax = new SalaryAndTax();
-        Map<String, SalaryAndTax> newMap = new HashMap<String, SalaryAndTax>
-
+        List<Integer> values = new ArrayList<Integer>();
+        Map<String,List<Integer>> hm = new HashMap<String,List<Integer>>();
         for (String key : peopleMap.keySet()
         ) {
 
             System.out.println(key + " Salary: " + ( peopleMap.get(key) - peopleMap.get(key) * 0.13) + " Tax: " + ((int) peopleMap.get(key) * 0.13));
 
         }
-        return  peopleSalaryAndTax;
+        return  hm;
 
     }
 }
