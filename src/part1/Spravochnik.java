@@ -119,16 +119,18 @@ public class Spravochnik {
         find medium salary in map and return key(FIO)
          */
         ArrayList<String> peopleMediumSalaryList = new ArrayList();
-        int salarySumm = 0;
+        int salarySum = 0;
         for (String key : peopleMap.keySet()
         ) {
             if (debug) System.out.println("*debug* salary " + key); //debug
-            salarySumm += peopleMap.get(key);
+            salarySum += peopleMap.get(key);
         }
-        if (debug) System.out.println("*debug* Medium: " + salarySumm / peopleMap.size()); //debug
+        if (debug) System.out.println("*debug* Medium: " + salarySum / peopleMap.size()); //debug
+
+        int salaryMedium = salarySum / peopleMap.size();
         for (String key : peopleMap.keySet()
         ) {
-            if (peopleMap.get(key) > (salarySumm / peopleMap.size()))
+            if (peopleMap.get(key) > salaryMedium)
                 peopleMediumSalaryList.add(key);
         }
         return peopleMediumSalaryList;
