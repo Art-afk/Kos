@@ -1,4 +1,5 @@
 package part1;
+
 import java.util.*;
 
 
@@ -16,18 +17,25 @@ public class Spravochnik {
     public static int maxSalary = 100000;
 
     public static void main(String[] args) {
-        int tax = 13;
+        double tax = 0.13;
         // createPeopleBase();
         Map<String, Integer> peopleSalary = createPeopleBase();
         ArrayList minimumSalary = getMinSalary(peopleSalary);
         ArrayList maximumISalary = getMaxSalary(peopleSalary);
-        ArrayList mediumSalary =  filterAboveAverage(peopleSalary);
+        ArrayList mediumSalary = filterAboveAverage(peopleSalary);
         System.out.println("Minimum salary: " + minimumSalary);
         System.out.println("Maximum salary: " + maximumISalary);
         System.out.println("People with above average salaries: " + mediumSalary);
         if (debug) System.out.println("*debug* " + peopleSalary);
-        Map peopleSalaryAndTax = getSalaryAfterTax(peopleSalary,tax);
-         getSalaryAfterTax(peopleSalary, tax);// print all salary after pay tax
+        Map<String, List<Double>> peopleSalaryAndTax = getSalaryAfterTax(peopleSalary, tax);
+        //System.out.println(getSalaryAfterTax(peopleSalary, tax));// print all salary after pay tax
+        for (String key : peopleSalaryAndTax.keySet()
+        ) {
+            System.out.println(key + " " + peopleSalaryAndTax.get(key).get(0) + " " + peopleSalaryAndTax.get(key).get(1));
+
+
+        }
+
     }
 
     public static Map<String, Integer> createPeopleBase() {
@@ -44,6 +52,7 @@ public class Spravochnik {
         peopleSalary.put("Marina", randomSalaryGenerate(minSalary, maxSalary));//10
         if (debug) System.out.println("*debug* All people and salary " + peopleSalary); //debug
         return peopleSalary;
+
 
     }
 
@@ -127,19 +136,18 @@ public class Spravochnik {
         return peopleMediumSalaryList;
     }
 
-    public static Map getSalaryAfterTax(Map<String, Integer> peopleMap, int tax) {
-        //https://overcoder.net/q/95361/hashmap-%D0%BE%D0%B4%D0%B8%D0%BD-%D0%BA%D0%BB%D1%8E%D1%87-%D0%BD%D0%B5%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE-%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B9
-        //https://stackoverflow.com/questions/12536683/multiple-values-for-a-key-in-hashmap-in-java
+    public static Map<String, List<Double>> getSalaryAfterTax(Map<String, Integer> peopleMap, double tax) {
         //3.Посчитать зарплату после уплаты налогов и вывести в формате <Имя> - <на руки> - <налог>
-        List<Integer> values = new ArrayList<Integer>();
-        Map<String,List<Integer>> hm = new HashMap<String,List<Integer>>();
+        Map<String, List<Double>> peopleSalaryAndTax = new HashMap<String, List<Double>>();
         for (String key : peopleMap.keySet()
         ) {
-
-            System.out.println(key + " Salary: " + ( peopleMap.get(key) - peopleMap.get(key) * 0.13) + " Tax: " + ((int) peopleMap.get(key) * 0.13));
-
+            List<Double> values = new ArrayList<Double>();
+            double a = peopleMap.get(key);
+            values.add(a);
+            values.add(peopleMap.get(key) * tax);
+            hm.put(key, values);
+            if (debug) System.out.println("*debug*" + key + " Salary: " + (peopleMap.get(key) - peopleMap.get(key) * 0.13) + " Tax: " + ((int) peopleMap.get(key) * 0.13));
         }
-        return  hm;
-
+        return hm;
     }
 }
