@@ -1,7 +1,7 @@
 package part1;
 
 import java.util.*;
-
+import java.lang.Math.*;
 
 /*
 Необходимо создать справочник с типом. <Имя, Зарплата>, добавить туда 10 имён, зарплаты внести
@@ -23,17 +23,15 @@ public class Spravochnik {
         ArrayList minimumSalary = getMinSalary(peopleSalary);
         ArrayList maximumISalary = getMaxSalary(peopleSalary);
         ArrayList mediumSalary = filterAboveAverage(peopleSalary);
-        System.out.println("Minimum salary: " + minimumSalary);
-        System.out.println("Maximum salary: " + maximumISalary);
+        System.out.println("Minimum salary: " + minimumSalary.get(0));
+        System.out.println("Maximum salary: " + maximumISalary.get(0));
         System.out.println("People with above average salaries: " + mediumSalary);
         if (debug) System.out.println("*debug* " + peopleSalary);
         Map<String, List<Double>> peopleSalaryAndTax = getSalaryAfterTax(peopleSalary, tax);
         //System.out.println(getSalaryAfterTax(peopleSalary, tax));// print all salary after pay tax
         for (String key : peopleSalaryAndTax.keySet()
-        ) {
-            System.out.println(key + " " + peopleSalaryAndTax.get(key).get(0) + " " + peopleSalaryAndTax.get(key).get(1));
-
-
+        ) { //Вывод зарплаты после уплаты налогов и вывести в формате <Имя> - <на руки> - <налог>
+            System.out.println(key + " - " + " Salary after tax: " + peopleSalaryAndTax.get(key).get(0) + " Tax: " + peopleSalaryAndTax.get(key).get(1));
         }
 
     }
@@ -141,13 +139,13 @@ public class Spravochnik {
         Map<String, List<Double>> peopleSalaryAndTax = new HashMap<String, List<Double>>();
         for (String key : peopleMap.keySet()
         ) {
-            List<Double> values = new ArrayList<Double>();
-            double a = peopleMap.get(key);
-            values.add(a);
-            values.add(peopleMap.get(key) * tax);
-            hm.put(key, values);
-            if (debug) System.out.println("*debug*" + key + " Salary: " + (peopleMap.get(key) - peopleMap.get(key) * 0.13) + " Tax: " + ((int) peopleMap.get(key) * 0.13));
+            List<Double> listSalaryAndTax = new ArrayList<Double>();
+            listSalaryAndTax.add((peopleMap.get(key) - (peopleMap.get(key) * tax))); // salary after tax
+            listSalaryAndTax.add(peopleMap.get(key) * tax); // tax
+            peopleSalaryAndTax.put(key, listSalaryAndTax);
+            if (debug)
+                System.out.println("*debug*" + key + " Salary: " + (peopleMap.get(key) - (peopleMap.get(key) * tax)) + " Tax: " + (peopleMap.get(key) * tax));
         }
-        return hm;
+        return peopleSalaryAndTax;
     }
 }
