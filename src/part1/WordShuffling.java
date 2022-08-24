@@ -19,6 +19,8 @@ import java.io.BufferedOutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
 
 public class WordShuffling {
 
@@ -32,7 +34,10 @@ public class WordShuffling {
         // Start(path, topatch);
         ReadFromFile(path);
 
+
+
     }
+
 
     public static void WriteToFile(String path,String text) throws Exception {
         try(FileOutputStream fos = new FileOutputStream(path,false);
@@ -50,7 +55,7 @@ public class WordShuffling {
             int i;
 
             while ((i= bio.read()) != -1){
-                System.out.println((char)i);
+             //   System.out.println((char)i);
             }
             return(char) i;
         }
