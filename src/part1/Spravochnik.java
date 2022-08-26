@@ -1,9 +1,14 @@
-package part1;
 
+package part1;
+/**
+ * @author zar
+ */
 import java.util.*;
 import java.lang.Math.*;
 
-/*
+
+
+/**
 Необходимо создать справочник с типом. <Имя, Зарплата>, добавить туда 10 имён, зарплаты внести
 случайным образом от 25 000 до 100 000, зарплата должна быть кратна 1000. Имена задаются разработчиком.
 Затем:
@@ -16,16 +21,29 @@ public class Spravochnik {
     public static int minSalary = 25000;
     public static int maxSalary = 100000;
 
+    /**
+     *
+     * @param args comand line values
+     */
     public static void main(String[] args) {
         double tax = 0.13;
         // createPeopleBase();
         Map<String, Integer> peopleSalary = createPeopleBase();
-        ArrayList minimumSalary = getMinSalary(peopleSalary);
-        ArrayList maximumISalary = getMaxSalary(peopleSalary);
-        ArrayList mediumSalary = filterAboveAverage(peopleSalary);
-        System.out.println("Minimum salary: " + minimumSalary.get(0));
-        System.out.println("Maximum salary: " + maximumISalary.get(0));
-        System.out.println("People with above average salaries: " + mediumSalary);
+        ArrayList<String> minimumSalary = getMinSalary(peopleSalary);
+        ArrayList<String> maximumISalary = getMaxSalary(peopleSalary);
+        ArrayList<String> mediumSalary = filterAboveAverage(peopleSalary);
+        for (String key: minimumSalary
+             ) {
+            System.out.println("Minimum salary: " + key);
+        }
+        for (String key: maximumISalary
+             ) {
+            System.out.println("Maximum salary: " + key);
+        }
+        for (String key: mediumSalary
+             ) {
+            System.out.println("People with above average salaries: " + key);
+        }
         if (debug) System.out.println("*debug* " + peopleSalary);
         Map<String, List<Double>> peopleSalaryAndTax = getSalaryAfterTax(peopleSalary, tax);
         //System.out.println(getSalaryAfterTax(peopleSalary, tax));// print all salary after pay tax
@@ -54,7 +72,12 @@ public class Spravochnik {
 
     }
 
-
+    /**
+     * generates a random number in the range
+     * @param min some int value
+     * @param max some int value
+     * @return random value in the range
+     */
     public static int randomSalaryGenerate(int min, int max) {
         Random r = new Random();
         int diff = max - min;
@@ -66,10 +89,11 @@ public class Spravochnik {
         return i;
     }//randomSalaryGenerate
 
-    public static ArrayList getMinSalary(Map<String, Integer> peopleSalary) {
-        /*
-        find minimum salary in map and return key(FIO)
-         */
+    /**
+     *  find minimum salary in map and return key(FIO)
+      */
+    public static ArrayList<String> getMinSalary(Map<String, Integer> peopleSalary) {
+
         ArrayList<String> peopleListMinSalary = new ArrayList();
         int minSalary = Integer.MAX_VALUE;
         for (String key : peopleSalary.keySet()
@@ -90,7 +114,7 @@ public class Spravochnik {
         return peopleListMinSalary;
     }
 
-    public static ArrayList getMaxSalary(Map<String, Integer> peopleSalary) {
+    public static ArrayList<String> getMaxSalary(Map<String, Integer> peopleSalary) {
           /*
         find maximum salary in map and return key(FIO)
          */
@@ -114,7 +138,7 @@ public class Spravochnik {
     } //checkMaxSalary
 
 
-    public static ArrayList filterAboveAverage(Map<String, Integer> peopleMap) {
+    public static ArrayList<String> filterAboveAverage(Map<String, Integer> peopleMap) {
            /*
         find medium salary in map and return key(FIO)
          */
