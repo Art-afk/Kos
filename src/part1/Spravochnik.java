@@ -5,7 +5,7 @@ package part1;
 import java.util.*;
 import java.lang.Math.*;
 
- */
+
 public class Spravochnik {
     public static boolean debug = false;
     public static int minSalary = 25000;
