@@ -1,11 +1,7 @@
 package part1;
 
-import java.util.LinkedList;
-import java.util.Queue;
 
 public class MyQueueApp {
-
-
     public static void main(String[] args) {
         MyQueue myQueue = new MyQueue();
         myQueue.offer("1");
@@ -20,25 +16,11 @@ public class MyQueueApp {
         System.out.println("Peek: " + myQueue.peek());//возвращает элемент из головы очереди. Возвращает null, если очередь пуста. Элемент не удаляется.
         System.out.println("Element: " + myQueue.element()); //возвращает элемент из головы очереди. Элемент не удаляется. Если очередь пуста, инициируется исключение NoSuchElementException.
 
-
         myQueue.clear();
+        System.out.println("Peek null: " + myQueue.peek());//возвращает элемент из головы очереди. Возвращает null, если очередь пуста. Элемент не удаляется.
         System.out.println("Element after clear: " + myQueue.element()); //возвращает элемент из головы очереди. Элемент не удаляется. Если очередь пуста, инициируется исключение NoSuchElementException.
 
     }
-
-    public static void test(){
-        Queue queue = new LinkedList();
-        queue.add(1);
-        queue.add(2);
-        queue.add(3);
-
-        System.out.println(queue);
-
-
-
-
-    }
-
 }
 
 

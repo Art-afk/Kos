@@ -3,9 +3,8 @@ package part1;
 import java.util.*;
 
 public class MyQueue {
-
     private Stack<Object> stackMain = new Stack<Object>();
-    Stack<Object> stackTakeover = new Stack<Object>();
+    private Stack<Object> stackTakeover = new Stack<Object>();
 
     public boolean offer(Object object) {
         return stackMain.add(object);
@@ -15,7 +14,6 @@ public class MyQueue {
         stackMain.clear();
         stackTakeover.clear();
     }
-
     public Object element() {
         if (stackTakeover.empty() && !stackMain.empty()) {
             Iterator<Object> itr = stackMain.iterator();
@@ -27,7 +25,6 @@ public class MyQueue {
         }
         return stackTakeover.peek();
     }
-
     public Object peek() {
         if (stackTakeover.empty() && !stackMain.empty()) {
             Iterator<Object> itr = stackMain.iterator();
@@ -39,12 +36,6 @@ public class MyQueue {
         }
         return stackTakeover.peek();
     }
-
-    /**
-     * Если очередь пуста, генерирует исключение NoSuchElementException
-     *
-     * @return возвращает с удалением элемент из начала очереди.
-     */
     public Object remove() {
         if (stackTakeover.empty() && !stackMain.empty()) {
             Iterator<Object> itr = stackMain.iterator();
