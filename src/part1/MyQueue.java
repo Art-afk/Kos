@@ -5,56 +5,39 @@ import java.util.*;
 public class MyQueue {
 
     private Stack<Object> stackMain = new Stack<Object>();
+    Stack<Object> stackTakeover = new Stack<Object>();
 
-    public void add(Object object) {
-        stackMain.add(object);
+    public boolean offer(Object object) {
+        return stackMain.add(object);
     }
 
     public void clear() {
         stackMain.clear();
+        stackTakeover.clear();
     }
 
     public Object element() {
-        if (stackMain.empty()) throw new NoSuchElementException();
-        else {
-            Stack<Object> stackTakeover = new Stack<Object>();
-            Object ret;
-            if (stackMain.empty()) throw new NoSuchElementException();
-            else {
-                Iterator<Object> itr = stackMain.iterator();
-                while (itr.hasNext()) {
-                    stackTakeover.push(stackMain.pop());
-                }
-                ret = stackTakeover.peek();
-                Iterator<Object> itr2 = stackTakeover.iterator();
-                while (itr2.hasNext()) {
-                    stackMain.push(stackTakeover.pop());
-                }
+        if (stackTakeover.empty() && !stackMain.empty()) {
+            Iterator<Object> itr = stackMain.iterator();
+            while (itr.hasNext()) {
+                stackTakeover.push(stackMain.pop());
             }
-            return ret;
-
+        } else if (stackTakeover.empty() && stackMain.empty()) {
+            throw new NoSuchElementException();
         }
+        return stackTakeover.peek();
     }
 
     public Object peek() {
-        if (stackMain.empty()) return null;
-        else {
-            Stack<Object> stackTakeover = new Stack<Object>();
-            Object ret;
-            if (stackMain.empty()) throw new NoSuchElementException();
-            else {
-                Iterator<Object> itr = stackMain.iterator();
-                while (itr.hasNext()) {
-                    stackTakeover.push(stackMain.pop());
-                }
-                ret = stackTakeover.peek();
-                Iterator<Object> itr2 = stackTakeover.iterator();
-                while (itr2.hasNext()) {
-                    stackMain.push(stackTakeover.pop());
-                }
+        if (stackTakeover.empty() && !stackMain.empty()) {
+            Iterator<Object> itr = stackMain.iterator();
+            while (itr.hasNext()) {
+                stackTakeover.push(stackMain.pop());
             }
-            return ret;
+        } else if (stackTakeover.empty() && stackMain.empty()) {
+            return null;
         }
+        return stackTakeover.peek();
     }
 
     /**
@@ -63,43 +46,26 @@ public class MyQueue {
      * @return возвращает с удалением элемент из начала очереди.
      */
     public Object remove() {
-        Stack<Object> stackTakeover = new Stack<Object>();
-        Object ret;
-        if (stackMain.empty()) throw new NoSuchElementException();
-        else {
+        if (stackTakeover.empty() && !stackMain.empty()) {
             Iterator<Object> itr = stackMain.iterator();
-            {
-                while (itr.hasNext()) {
-                    stackTakeover.push(stackMain.pop());
-                }
-                ret = stackTakeover.pop();
-                Iterator<Object> itr2 = stackTakeover.iterator();
-                while (itr2.hasNext()) {
-                    stackMain.push(stackTakeover.pop());
-                }
+            while (itr.hasNext()) {
+                stackTakeover.push(stackMain.pop());
             }
-            return ret;
+        } else if (stackTakeover.empty() && stackMain.empty()) {
+            throw new NoSuchElementException();
         }
+        return stackTakeover.pop();
     }
-
     public Object pool() {
-        Stack<Object> stackTakeover = new Stack<Object>();
-        Object ret;
-        if (stackMain.empty()) throw new NoSuchElementException();
-        else {
+        if (stackTakeover.empty() && !stackMain.empty()) {
             Iterator<Object> itr = stackMain.iterator();
-            {
-                while (itr.hasNext()) {
-                    stackTakeover.push(stackMain.pop());
-                }
-                ret = stackTakeover.pop();
-                Iterator<Object> itr2 = stackTakeover.iterator();
-                while (itr2.hasNext()) {
-                    stackMain.push(stackTakeover.pop());
-                }
+            while (itr.hasNext()) {
+                stackTakeover.push(stackMain.pop());
             }
-            return ret;
+        } else if (stackTakeover.empty() && stackMain.empty()) {
+            return null;
         }
+        return stackTakeover.pop();
     }
 
     public boolean print() {
@@ -108,6 +74,4 @@ public class MyQueue {
         }
         return true;
     }
-
-
 }
