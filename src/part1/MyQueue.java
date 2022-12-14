@@ -59,10 +59,18 @@ public class MyQueue {
         return stackTakeover.pop();
     }
 
-    public boolean print() {
-        for (Object item : stackMain) {
-            System.out.println(item);
+
+
+    public Object print() {
+        if (stackTakeover.empty() && !stackMain.empty()) {
+            Iterator<Object> itr = stackMain.iterator();
+            while (itr.hasNext()) {
+                stackTakeover.push(stackMain.pop());
+            }
+        } else if (stackTakeover.empty() && stackMain.empty()) {
+            return null;
         }
-        return true;
+        return stackTakeover.toString();
+
     }
 }
