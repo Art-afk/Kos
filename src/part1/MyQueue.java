@@ -16,36 +16,32 @@ public class MyQueue {
     }
 
     public Object element() {
-        if (stackTakeover.empty() && !stackMain.empty()) {
-            revertStack();
-        } else if (stackTakeover.empty() && stackMain.empty()) {
+        revertStack();
+        if (stackTakeover.empty()) {
             throw new NoSuchElementException();
         }
         return stackTakeover.peek();
     }
 
     public Object peek() {
-        if (stackTakeover.empty() && !stackMain.empty()) {
-            revertStack();
-        } else if (stackTakeover.empty() && stackMain.empty()) {
+        revertStack();
+        if (stackTakeover.empty() ) {
             return null;
         }
         return stackTakeover.peek();
     }
 
     public Object remove() {
-        if (stackTakeover.empty() && !stackMain.empty()) {
-            revertStack();
-        } else if (stackTakeover.empty() && stackMain.empty()) {
+        revertStack();
+        if (stackTakeover.empty()) {
             throw new NoSuchElementException();
         }
         return stackTakeover.pop();
     }
 
     public Object pool() {
-        if (stackTakeover.empty() && !stackMain.empty()) {
-            revertStack();
-        } else if (stackTakeover.empty() && stackMain.empty()) {
+        revertStack();
+        if (stackTakeover.empty()) {
             return null;
         }
         return stackTakeover.pop();
@@ -53,9 +49,8 @@ public class MyQueue {
 
 
     public Object print() {
-        if (stackTakeover.empty() && !stackMain.empty()) {
-            revertStack();
-        } else if (stackTakeover.empty() && stackMain.empty()) {
+        revertStack();
+        if (stackTakeover.empty()) {
             return null;
         }
         return stackTakeover.toString();
@@ -63,9 +58,11 @@ public class MyQueue {
     }
 
     private void revertStack() {
-        Iterator<Object> itr = stackMain.iterator();
-        while (itr.hasNext()) {
-            stackTakeover.push(stackMain.pop());
+        if (stackTakeover.empty() && !stackMain.empty()) {
+            Iterator<Object> itr = stackMain.iterator();
+            while (itr.hasNext()) {
+                stackTakeover.push(stackMain.pop());
+            }
         }
     }
 }
