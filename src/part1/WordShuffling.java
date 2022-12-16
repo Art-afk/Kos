@@ -24,6 +24,8 @@ package part1;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class WordShuffling {
@@ -35,6 +37,8 @@ public class WordShuffling {
                 "кипела вода в чайнике";
         writeToFile(osPathCheck() + "file.txt", text);
         ArrayList<String> myText = textConvertToArray(readFromFile(osPathCheck() + "file.txt"));
+        Queue myq = new LinkedList();
+        myq.remove();
         for (int i = myText.size() - 1; i >= 0; i--) {
             System.out.printf(myText.get(i) + " ");
         }
